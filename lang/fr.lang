@@ -36,7 +36,7 @@
 168 Configuration utilisateur ruTorrent
 170 Configuration Fail2Ban
 172 Installation VsFTPd
-174 Création des paramètres Diffie-Hellman de 2048 bits
+174 Création des paramètres Diffie-Hellman de 4096 bits
 176 L'attente peut durer plus de 10 minutes, soyez patient !
 178 Création certificat
 180 Installation terminée !

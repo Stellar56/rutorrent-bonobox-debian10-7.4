@@ -536,7 +536,7 @@ EOF
 	"$CMDCP" -f "$FILES"/fail2ban/nginx-badbots.conf /etc/fail2ban/filter.d/nginx-badbots.conf
 
 	"$CMDCP" -f /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-	"$CMDSED"  -i "/ssh/,+6d" /etc/fail2ban/jail.local
+	"$CMDSED" -i "/ssh/,+6d" /etc/fail2ban/jail.local
 
 "$CMDCAT" <<- EOF >> /etc/fail2ban/jail.local
 		[ssh]

@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# variables
-CSI="\033["
-CEND="${CSI}0m"
-CRED="${CSI}1;31m"
-CGREEN="${CSI}1;32m"
-CYELLOW="${CSI}1;33m"
-CBLUE="${CSI}1;34m"
+		# variables
+	CSI="\033["
+	CEND="${CSI}0m"
+	CRED="${CSI}1;31m"
+	CGREEN="${CSI}1;32m"
+	CYELLOW="${CSI}1;33m"
+	CBLUE="${CSI}1;34m"
 
-ARG="$*"
-VERSION=$("$CMDCAT" /etc/debian_version)
+	ARG="$*"
+	VERSION=$("$CMDCAT" /etc/debian_version)
 
 if [[ "$VERSION" = 10.* ]]; then
 	DEBNUMBER="Debian_10.0.deb"
@@ -25,6 +25,7 @@ HISTOLOG="histo-2021"
 PHPNAME="php7.4"
 PHPPATH="/etc/php/7.4"
 PHPSOCK="/run/php/php7.4-fpm.sock"
+
 #LIBZEN0NAME="libzen0v5"
 #LIBMEDIAINFO0NAME="libmediainfo0v5"
 

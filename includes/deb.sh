@@ -36,5 +36,5 @@ EOF
 
 		# dépôts standard
 		cd /tmp || exit
-	"$CMDAPTGET" install -y apt-transport-https gnupg2
+	"$CMDAPTGET" install -y apt-transport-https gnupg2 ca-certificates
 		FONCDEP "$DEBNAME"

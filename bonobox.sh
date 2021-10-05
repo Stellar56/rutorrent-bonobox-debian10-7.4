@@ -495,7 +495,7 @@ EOF
 	"$CMDECHO" ""; set "166" "134"; FONCTXT "$1" "$2"; "$CMDECHO" -e "${CBLUE}$TXT1${CEND}${CGREEN}$TXT2${CEND}"; "$CMDECHO" ""
 
 		# configuration user rutorrent.conf
-		FONCRTCONF "$USERMAJ"  "$PORT" "$USER"
+		FONCRTCONF "$USERMAJ" "$PORT" "$USER"
 
 		# config.php
 	"$CMDMKDIR" "$RUCONFUSER"/"$USER"

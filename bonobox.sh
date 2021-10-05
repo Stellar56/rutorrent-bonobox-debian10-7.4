@@ -193,6 +193,7 @@ fi
 		ntpdate \
 		openssl \
 		pastebinit \
+		needrestart \
 		"$PHPNAME" \
 		"$PHPNAME"-cli \
 		"$PHPNAME"-common \

@@ -205,6 +205,7 @@ fi
 		"$PHPNAME"-readline \
 		"$PHPNAME"-xml \
 		"$PHPNAME"-zip \
+		"$PHPNAME"-bcmath \
 		php-geoip \
 		pkg-config \
 		psmisc \
@@ -235,8 +236,8 @@ fi
 
 	"$CMDECHO" ""; set "136" "134"; FONCTXT "$1" "$2"; "$CMDECHO" -e "${CBLUE}$TXT1${CEND}${CGREEN}$TXT2${CEND}"; "$CMDECHO" ""
 
-	# génération clé 4096 bits
-	"$CMDOPENSSL" dhparam -out dhparams.pem 4096 >/dev/null 2>&1 &
+	# génération clé 3072 bits
+	"$CMDOPENSSL" dhparam -out dhparams.pem 3072 >/dev/null 2>&1 &
 
 		# téléchargement complément favicons
 	"$CMDWGET" -T 10 -t 3 http://www.bonobox.net/script/favicon.tar.gz || "$CMDWGET" -T 10 -t 3 http://alt.bonobox.net/favicon.tar.gz
@@ -372,7 +373,7 @@ done
 	"$CMDLN" -s "$RUPLUGINS"/fileshare/share.php "$NGINXBASE"/share.php
 
 # configuration create
-# shellcheck disable=SC2154
+		# shellcheck disable=SC2154
 	"$CMDSED" -i "s#$useExternal = false;#$useExternal = 'mktorrent';#" "$RUPLUGINS"/create/conf.php
 		# shellcheck disable=SC2154
 	"$CMDSED" -i "s#$pathToCreatetorrent = '';#$pathToCreatetorrent = '/usr/bin/mktorrent';#" "$RUPLUGINS"/create/conf.php
@@ -381,7 +382,7 @@ done
 	"$CMDSED" -i "s/scars,user1,user2/$USER/g;" "$RUPLUGINS"/logoff/conf.php
 
 # installation mediainfo
-# FONCMEDIAINFO
+		# FONCMEDIAINFO
 
 		# variable minutes aléatoire crontab geoip2
 	MAXIMUM=58
@@ -601,18 +602,18 @@ EOF
 	"$CMDECHO" ""; set "172" "134"; FONCTXT "$1" "$2"; "$CMDECHO" -e "${CBLUE}$TXT1${CEND}${CGREEN}$TXT2${CEND}"; "$CMDECHO" ""
 fi
 
-		# déplacement clé 4096 bits
+		# déplacement clé 3072 bits
 	"$CMDCP" -f /tmp/dhparams.pem "$NGINXSSL"/dhparams.pem
 	"$CMDCHMOD" 600 "$NGINXSSL"/dhparams.pem
 		FONCSERVICE restart nginx
 	
-	# contrôle clé 4096 bits
+	# contrôle clé 3072 bits
 if [ ! -f "$NGINXSSL"/dhparams.pem ]; then
 	"$CMDKILL" -HUP "$("$CMDPGREP" -x openssl)"
 	"$CMDECHO" ""; set "174"; FONCTXT "$1"; "$CMDECHO" -e "${CBLUE}$TXT1${CEND}"
 		set "176"; FONCTXT "$1"; "$CMDECHO" -e "${CRED}$TXT1${CEND}"; "$CMDECHO" ""
 		cd "$NGINXSSL" || exit
-		"$CMDOPENSSL" dhparam -out dhparams.pem 4096
+		"$CMDOPENSSL" dhparam -out dhparams.pem 3072
 	"$CMDCHMOD" 600 dhparams.pem
 		FONCSERVICE restart nginx
 	"$CMDECHO" ""; set "178" "134"; FONCTXT "$1" "$2"; "$CMDECHO" -e "${CBLUE}$TXT1${CEND}${CGREEN}$TXT2${CEND}"; "$CMDECHO" ""
@@ -780,8 +781,8 @@ fi
 fi
 	done
 else
-	# lancement lancement gestion des utilisateurs
+		# lancement lancement gestion des utilisateurs
 	"$CMDCHMOD" +x ./gestion-users.sh
-	# shellcheck source=/dev/null
-	source ./gestion-users.sh
+		# shellcheck source=/dev/null
+		source ./gestion-users.sh
 fi

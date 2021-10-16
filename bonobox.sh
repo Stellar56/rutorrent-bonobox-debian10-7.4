@@ -281,9 +281,9 @@ EOF
 	"$CMDNTPDATE" -d 0.fr.pool.ntp.org
 fi
 
-		# installation xmlrpc libtorrent rtorrent
+		# installation xmlrpc-Advanced libtorrent rtorrent
 		cd /tmp || exit
-	"$CMDGIT" clone --progress https://github.com/mirror/xmlrpc-c.git
+	"$CMDGIT" clone --progress https://github.com/Stellar56/xmlrpc-c.git
 
 		cd xmlrpc-c/advanced || exit
 		./configure #--disable-cplusplus

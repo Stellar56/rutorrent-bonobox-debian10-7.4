@@ -281,12 +281,12 @@ EOF
 	"$CMDNTPDATE" -d 0.fr.pool.ntp.org
 fi
 
-		# installation xmlrpc-Advanced libtorrent rtorrent
-		cd /tmp || exit
-	"$CMDGIT" clone --progress https://github.com/Stellar56/xmlrpc-c.git
+		# installation xmlrpc/advanced libtorrent rtorrent
+	cd /tmp || exit
+	"$CMDGIT" clone --progress https://github.com/mirror/xmlrpc-c.git
 
-		cd xmlrpc-c/advanced || exit
-		./configure #--disable-cplusplus
+	cd xmlrpc-c/advanced || exit
+	./configure #--disable-cplusplus
 	"$CMDMAKE" -j "$THREAD"
 	"$CMDMAKE" install
 	"$CMDECHO" ""; set "140" "134"; FONCTXT "$1" "$2"; "$CMDECHO" -e "${CBLUE}$TXT1${CEND}${CGREEN}$TXT2${CEND}"; "$CMDECHO" ""
